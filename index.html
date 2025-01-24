@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saarthi - Your Trusted Shopping Companion</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        ul {
+            list-style: none;
+        }
+        /* Header */
+        header {
+            background-color: #2874f0;
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        header .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        header nav ul {
+            display: flex;
+            align-items: center;
+        }
+        header nav ul li {
+            margin: 0 1rem;
+        }
+        header nav ul li a {
+            color: white;
+            font-size: 1rem;
+        }
+        .search-bar {
+            flex: 1;
+            margin: 0 1.5rem;
+            display: flex;
+        }
+        .search-bar input {
+            flex: 1;
+            padding: 0.5rem;
+            border: none;
+            border-radius: 4px 0 0 4px;
+        }
+        .search-bar button {
+            background-color: #ff9900;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0 4px 4px 0;
+            color: white;
+            cursor: pointer;
+        }
+        /* Hero Section */
+        .hero {
+        background-image: url('https://www.edesk.com/wp-content/uploads/2021/03/find-trending-products-sell-ecommerce.png');
+        background-size: cover;
+        background-position: center;
+        height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+        position: relative;
+        z-index: 1;
+    }
+    .hero .overlay {
+        background: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1; /* Ensure overlay is above the background */
+    }
+    .hero div {
+        position: relative; /* Ensure content is above the overlay */
+        z-index: 2;
+    }
+    .hero h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+    .hero p {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+    }
+    .hero button {
+        background-color: #ff9900;
+        border: none;
+        padding: 0.75rem 1.5rem;
+        border-radius: 4px;
+        color: white;
+        font-size: 1rem;
+        cursor: pointer;
+    }
+        /* Product Section */
+        .product-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+        }
+        .product-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: contain;
+        }
+        .product-card .details {
+            padding: 1rem;
+        }
+        .product-card .details h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        .product-card .details p {
+            margin: 0.5rem 0;
+            color: #777;
+        }
+        .product-card .details .price {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        .product-card button {
+            background-color: #2874f0;
+            border: none;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        /* Footer */
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        footer p {
+            margin: 0.5rem 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">Saarthi</div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search for products, brands, and more...">
+            <button>Search</button>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Categories</a></li>
+                <li><a href="#">Deals</a></li>
+                <li><a href="#">Cart</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="overlay"></div>
+        <div>
+            <h1>Welcome to Saarthi</h1>
+            <p>Your trusted shopping companion for quality products at unbeatable prices.</p>
+            <button>Shop Now</button>
+        </div>
+    </section>
+
+    <!-- Product Section -->
+    <section class="product-container">
+        <!-- Product Card -->
+        <div class="product-card">
+            <img src="https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6443/6443289cv11d.jpg" alt="Product 1">
+            <div class="details">
+                <h3>Apple iPhone 13</h3>
+                <p>64GB, Midnight</p>
+                <p class="price">₹69,999</p>
+                <button>Buy Now</button>
+            </div>
+        </div>
+        <!-- Product Card -->
+        <div class="product-card">
+            <img src="https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6441/6441107_sd.jpg" alt="Product 2">
+            <div class="details">
+                <h3>Samsung Galaxy S21</h3>
+                <p>128GB, Phantom Gray</p>
+                <p class="price">₹54,999</p>
+                <button>Buy Now</button>
+            </div>
+        </div>
+        <!-- Product Card -->
+        <div class="product-card">
+            <img src="https://m.media-amazon.com/images/I/616e2t492uL._SL1500_.jpg" alt="Product 3">
+            <div class="details">
+                <h3>Noise ColorFit Pro</h3>
+                <p>Smartwatch with AMOLED Display</p>
+                <p class="price">₹3,999</p>
+                <button>Buy Now</button>
+            </div>
+        </div>
+        <!-- Product Card -->
+        <div class="product-card">
+            <img src="https://th.bing.com/th/id/OIP.cehvgmM_4GyIqoTgpvDHsgHaEK?rs=1&pid=ImgDetMain" alt="Product 4">
+            <div class="details">
+                <h3>Dell Inspiron 15</h3>
+                <p>15.6" Laptop with i5 Processor</p>
+                <p class="price">₹49,999</p>
+                <button>Buy Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Saarthi. All Rights Reserved.</p>
+        <p>Privacy Policy | Terms of Service | Contact Us</p>
+    </footer>
+
+    <!-- IBM Watson Chatbot Integration -->
+    <script>
+        window.watsonAssistantChatOptions = {
+          integrationID: "afc59cc4-7bef-469e-ae4b-c8f0ee9796f9", // The ID of this integration.
+          region: "au-syd", // The region your integration is hosted in.
+          serviceInstanceID: "6e0efc19-8de0-47bf-8f8c-003aec883c95", // The ID of your service instance.
+          onLoad: async (instance) => { await instance.render(); }
+        };
+        setTimeout(function(){
+          const t=document.createElement('script');
+          t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
+          document.head.appendChild(t);
+        });
+      </script>
+</body>
+</html>
