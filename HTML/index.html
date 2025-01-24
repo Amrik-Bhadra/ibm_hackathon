@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saarthi | An E-commerce Application</title>
+    <link rel="stylesheet" href="/CSS/style.css">
+    <link rel="shortcut icon" href="/ASSETS/IMAGES/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+</head>
+<body>
+    <!-- header start here -->
+    <header>
+        <nav>
+            <!-- left box -->
+            <div class="logo-box">
+                <a href="/"><img src="/ASSETS/IMAGES/logo.png" alt="logo" class="logo"></a>
+            </div>
+
+            <!-- middle box -->
+            <div class="search-box">
+                <span class="material-symbols-outlined">search</span>
+                <input type="text" placeholder="Search for Vegetables, Fruits & Groceries..." class="search-input">
+            </div>
+
+            <!-- right box -->
+            <div class="nav-icons-box">
+                <div class="nav-icon become-seller-box">
+                   <a href="/seller-login"><span class="material-symbols-outlined">storefront</span>
+                    <p>Become a Seller</p>
+                </a> 
+                </div>
+                <div class="nav-icon cart-box">
+                <a href="/cart">
+                    <div class="cart-icon">
+                        
+                        <span class="material-symbols-outlined">shopping_basket</span>
+                        <div class="cart-count">3</div> <!-- Example count -->
+                    </div>
+                    <p>Basket</p>
+                </a>
+                </div>
+                <div class="nav-icon login-profile-box">
+                    <div class="profile-pic-hidden" id="avatar"><img src="/ASSETS/IMAGES/profile-picture.jpg" alt="profile pic"></div>
+                    <a href="/login"><button class="login-btn" id="loginButton"><span class="material-symbols-outlined">person</span>Login</button></a>
+                </div>
+            </div>
+        </nav>
+    </header> 
+    <!-- header ends here -->
+
+
+    <!-- browse by category section -->
+    <section class="browse-category-section">
+        <div class="browse-category-container">
+
+            <!-- upper container -->
+            <div class="browse-category-txt-container">
+                <div class="browse-category-txt-box">
+                    <h2 class="browse-category-txt">Browse by <span>Category</span></h2>
+                </div>
+                <div class="browse-category-arrow-box">
+                    <button class="arrow-box left-arrow-box" id="left-arrow-btn">
+                        <i class="fa-solid fa-angle-left"></i>
+                    </button>
+                    <button class="arrow-box right-arrow-box" id="right-arrow-btn">
+                        <i class="fa-solid fa-angle-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- lower container -->
+            <div class="browse-category-swiper-container">
+                <div class="category-slider-wrapper">
+                    <div class="category-card-list">
+                        <!-- card 1 -->
+                        <div class="category-card">
+                            <div class="category-cart-content">
+                                <div class="category-icon-box">
+                                    <img src="/ASSETS/IMAGES/category-1-fruits.png" alt="fruit icon" class="category-image">
+                                </div>
+                                <div class="category-item-name-box">
+                                    <h3 class="category-item-name"><a href="/category/Fruits">Fruits</a></h3>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <!-- card 2 -->
+                        <div class="category-card">
+                            <div class="category-cart-content">
+                                <div class="category-icon-box">
+                                    <img src="/ASSETS/IMAGES/category-2-vegies.png" alt="vegies icon" class="category-image">
+                                </div>
+                                <div class="category-item-name-box">
+                                    <h3 class="category-item-name"><a href="/category/Vegetables">Vegies</a></h3>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <!-- card 3 -->
+                        <div class="category-card">
+                            <div class="category-cart-content">
+                                <div class="category-icon-box">
+                                    <img src="/ASSETS/IMAGES/category-3-snacks.png" alt="snacks icon" class="category-image">
+                                </div>
+                                <div class="category-item-name-box">
+                                    <h3 class="category-item-name">Snacks</h3>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <!-- card 4 -->
+                        <div class="category-card">
+                            <div class="category-cart-content">
+                                <div class="category-icon-box">
+                                    <img src="/ASSETS/IMAGES/category-4-rice.png" alt="rice icon" class="category-image">
+                                </div>
+                                <div class="category-item-name-box">
+                                    <h3 class="category-item-name">Rice</h3>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <!-- card 5 -->
+                        <div class="category-card">
+                            <div class="category-cart-content">
+                                <div class="category-icon-box">
+                                    <img src="/ASSETS/IMAGES/category-5-Atta.png" alt="Atta icon" class="category-image">
+                                </div>
+                                <div class="category-item-name-box">
+                                    <h3 class="category-item-name">Atta</h3>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <!-- card 6 -->
+                        <div class="category-card">
+                            <div class="category-cart-content">
+                                <div class="category-icon-box">
+                                    <img src="/ASSETS/IMAGES/category-6-spices.png" alt="fruit icon" class="category-image">
+                                </div>
+                                <div class="category-item-name-box">
+                                    <h3 class="category-item-name">Spices</h3>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <!-- card 7 -->
+                        <div class="category-card">
+                            <div class="category-cart-content">
+                                <div class="category-icon-box">
+                                    <img src="/ASSETS/IMAGES/category-7-sugar.png" alt="fruit icon" class="category-image">
+                                </div>
+                                <div class="category-item-name-box">
+                                    <h3 class="category-item-name">Sugar</h3>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <!-- card 8 -->
+                        <div class="category-card">
+                            <div class="category-cart-content">
+                                <div class="category-icon-box">
+                                    <img src="/ASSETS/IMAGES/category-8-salt.png" alt="fruit icon" class="category-image">
+                                </div>
+                                <div class="category-item-name-box">
+                                    <h3 class="category-item-name">Salt</h3>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <!-- card 9 -->
+                        <div class="category-card">
+                            <div class="category-cart-content">
+                                <div class="category-icon-box">
+                                    <img src="/ASSETS/IMAGES/category-9-oil.png" alt="fruit icon" class="category-image">
+                                </div>
+                                <div class="category-item-name-box">
+                                    <h3 class="category-item-name">Oil</h3>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <!-- card 10 -->
+                        <div class="category-card">
+                            <div class="category-cart-content">
+                                <div class="category-icon-box">
+                                    <img src="/ASSETS/IMAGES/category-10-ghee.png" alt="ghee icon" class="category-image">
+                                </div>
+                                <div class="category-item-name-box">
+                                    <h3 class="category-item-name">Ghee</h3>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <!-- card 8 -->
+                        <div class="category-card">
+                            <div class="category-cart-content">
+                                <div class="category-icon-box">
+                                    <img src="/ASSETS/IMAGES/category-11-beverages.png" alt="Beverages icon" class="category-image">
+                                </div>
+                                <div class="category-item-name-box">
+                                    <h3 class="category-item-name">Beverages</h3>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <!-- card 12 -->
+                        <div class="category-card">
+                            <div class="category-cart-content">
+                                <div class="category-icon-box">
+                                    <img src="/ASSETS/IMAGES/category-12-sweets.png" alt="sweets icon" class="category-image">
+                                </div>
+                                <div class="category-item-name-box">
+                                    <h3 class="category-item-name">Sweets</h3>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- card 13 -->
+                        <div class="category-card">
+                            <div class="category-cart-content">
+                                <div class="category-icon-box">
+                                    <img src="/ASSETS/IMAGES/category-13-dryfruits.png" alt="dryfruit icon" class="category-image">
+                                </div>
+                                <div class="category-item-name-box">
+                                    <h3 class="category-item-name">Dry Fruits</h3>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- card 14 -->
+                        <div class="category-card">
+                            <div class="category-cart-content">
+                                <div class="category-icon-box">
+                                    <img src="/ASSETS/IMAGES/category-14-detergents.png" alt="deteergents icon" class="category-image">
+                                </div>
+                                <div class="category-item-name-box">
+                                    <h3 class="category-item-name">Detergents</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    <!-- browse by category section ends here -->
+
+
+    <!-- feature section starts here  -->
+    <section class="feature-section">
+        <div class="feature-heading-box">
+            <h1 class="feature-heading">
+                Our <span>Features</span>
+            </h1>
+        </div>
+        <div class="feature-container">
+
+            <!-- feature 1 -->
+            <div class="feature-box feature1">
+                <div class="feature-image-box">
+                    <img src="/ASSETS/IMAGES/huge-collection.png" alt="Huge collection" class="feature-image">
+                </div>
+                <div class="feature-content-box">
+                    <div class="feature-title-box">
+                        <h2 class="feature-title">Huge Collection</h2>
+                    </div>
+                    <div class="feature-para-box">
+                        <p class="feature-para">
+                            Explore our vast array of products with our extensive and diverse collection available for you.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- feature 2 -->
+            <div class="feature-box feature2">
+                <div class="feature-image-box">
+                    <img src="/ASSETS/IMAGES/data-analytics.png" alt="Data Analytics" class="feature-image">
+                </div>
+                <div class="feature-content-box">
+                    <div class="feature-title-box">
+                        <h2 class="feature-title">
+                            Data Analytics
+                        </h2>
+                    </div>
+                    <div class="feature-para-box">
+                        <p class="feature-para">
+                            Unlock insights and make informed decisions through powerful data analytics solutions tailored for your needs.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- feature 3 -->
+            <div class="feature-box feature3">
+                <div class="feature-image-box">
+                    <img src="/ASSETS/IMAGES/ai-chatbot.png" alt="24/7 customer support" class="feature-image">
+                </div>
+                <div class="feature-content-box">
+                    <div class="feature-title-box">
+                        <h2 class="feature-title">
+                            24/7 Support
+                        </h2>
+                    </div>
+                    <div class="feature-para-box">
+                        <p class="feature-para">
+                            Get round-the-clock assistance with our AI chatbot, ensuring prompt and efficient support whenever you need.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- feature 4 -->
+            <div class="feature-box feature4">
+                <div class="feature-image-box">
+                    <img src="/ASSETS/IMAGES/delivery.png" alt="faster delivery" class="feature-image">
+                </div>
+                <div class="feature-content-box">
+                    <div class="feature-title-box">
+                        <h2 class="feature-title">
+                            Fast Delivery
+                        </h2>
+                    </div>
+                    <div class="feature-para-box">
+                        <p class="feature-para">
+                            Experience swift and reliable delivery services, ensuring your orders reach you promptly and hassle-free.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+    <!-- feature section ends here -->
+
+
+    <!-- chatbot section -->
+    <div class="main-container">
+        <div class="chat-container">
+            <div class="chat-header">
+                <div class="chat-icon-box"></div>
+                <div class="chat-header-name-box">
+                    <h2 class="chat-header-name">Saarti</h2>
+                </div>
+            </div>
+            <ul class="chatbox">
+                <li class="chat incoming">
+                    <span><img src="/ASSETS/IMAGES/chatbot.png" alt=""></span>
+                    <p>Hello I'm Saarthi-bot. How can I help You!</p>
+                </li>
+            </ul>
+            <div class="chat-input">
+                <textarea name="" id="userMessage" placeholder="Enter your message..." required></textarea>
+                <span id="send-id"><i class="fa-solid fa-paper-plane"></i></span>
+            </div>
+        </div>
+        <!-- <button class="chat-open-box">
+            <i class="fa-solid fa-message"></i>
+        </button> -->
+    </div>
+
+    <!-- footer section starts here -->
+    <footer class="footer-section">
+        <div class="footer-container">
+            <div class="footer-row">
+                <div class="footer-col">
+                    <a href="/HTML/index.html"><img src="/ASSETS/IMAGES/white-logo.png" alt="logo" class="white-logo"></a>
+                </div>
+                <!-- column 1 -->
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Our Services</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">affiliate Program</a></li>
+                    </ul>
+                </div>
+
+                <!-- column 2 -->
+                <div class="footer-col">
+                    <h4>Help</h4>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Shipping</a></li>
+                        <li><a href="#">Return Policy</a></li>
+                        <li><a href="#">Order Status</a></li>
+                        <li><a href="#">Payment Options</a></li>
+                    </ul>
+                </div>
+
+                <!-- column 3 -->
+                <div class="footer-col">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="#">Vegetables</a></li>
+                        <li><a href="#">Fruits</a></li>
+                        <li><a href="#">Groceries</a></li>
+                    </ul>
+                </div>
+
+                <!-- column 4 -->
+                <div class="footer-col">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-contact-row">
+                <div class="footer-contact-no footer-contact-row-ele"><i class="fa-solid fa-phone"></i> +91-7739226540</div>
+                <div class="footer-contact-email footer-contact-row-ele"><i class="fa-solid fa-envelope"></i>saarthi@contact.in</div>
+                <div class="footer-copyright footer-contact-row-ele"><i class="fa-solid fa-copyright"></i>Copyright 2023 - 2024</div>
+            </div>
+        </div>
+    </footer>
+    <script src="JS/script.js"></script>
+    <!-- IBM Watson Chatbot Integration -->
+    <script>
+        window.watsonAssistantChatOptions = {
+          integrationID: "afc59cc4-7bef-469e-ae4b-c8f0ee9796f9", // The ID of this integration.
+          region: "au-syd", // The region your integration is hosted in.
+          serviceInstanceID: "6e0efc19-8de0-47bf-8f8c-003aec883c95", // The ID of your service instance.
+          onLoad: async (instance) => { await instance.render(); }
+        };
+        setTimeout(function(){
+          const t=document.createElement('script');
+          t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
+          document.head.appendChild(t);
+        });
+      </script> 
+</body> 
+</html>

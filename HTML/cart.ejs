@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart</title>
+  <link rel="stylesheet" href="/CSS/cart.css">
+  <link rel="stylesheet" href="/CSS/style.css">
+  <link rel="shortcut icon" href="/ASSETS/IMAGES/favicon.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+</head>
+<body>
+
+<!-- header start here -->
+<header>
+  <nav>
+      <!-- left box -->
+      <div class="logo-box">
+          <a href="/"><img src="/ASSETS/IMAGES/logo.png" alt="logo" class="logo"></a>
+      </div>
+
+      <!-- middle box -->
+      <div class="search-box">
+          <span class="material-symbols-outlined">search</span>
+          <input type="text" placeholder="Search for Vegetables, Fruits & Groceries..." class="search-input">
+      </div>
+
+      <!-- right box -->
+      <div class="nav-icons-box">
+          <div class="nav-icon become-seller-box">
+             <a href="/seller-login"><span class="material-symbols-outlined">storefront</span>
+              <p>Become a Seller</p>
+          </a> 
+          </div>
+          <div class="nav-icon cart-box">
+            <a href="/cart">
+              <div class="cart-icon">
+                  
+                  <span class="material-symbols-outlined">shopping_basket</span>
+                  <div class="cart-count"></div> <!-- Example count -->
+              </div>
+              <p>Basket</p>
+          </a>
+          </div>
+          <div class="nav-icon login-profile-box">
+              <div class="profile-pic-hidden" id="avatar"><img src="/ASSETS/IMAGES/profile-picture.jpg" alt="profile pic"></div>
+              <a href="/login"><button class="login-btn" id="loginButton"><span class="material-symbols-outlined">person</span>Login</button></a>
+          </div>
+      </div>
+  </nav>
+</header> 
+<!-- header ends here -->
+
+<div class="shopping-cart">
+  <h1>Shopping Cart</h1>
+  <div class="column-labels">
+    <label class="product-image">Image</label>
+    <label class="product-details">Product</label>
+    <label class="product-price">Price</label>
+    <label class="product-quantity">Quantity</label>
+    <label class="product-removal">Remove</label>
+    <label class="product-line-price">Total</label>
+  </div>
+  <% cartItems.forEach(item => { %>
+    <div class="product">
+      <div class="product-image">
+        <img src="/images/<%= item.image_code %>.jpeg" alt="Product Image" />
+      </div>
+      <div class="product-details">
+        <div class="product-title"><%= item.product_name %></div>
+        <p class="product-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta dignissimos eius provident sed dolores recusandae nulla minima deserunt quidem commodi?</p>
+      </div>
+      <div class="product-price"><%= item.price %></div>
+      <div class="product-quantity">
+        <input type="number" value="<%= item.weight %>" min="0.05" step="0.05">
+      </div>
+      <a href="/remove?product_id=<%= item.product_id %>">
+        <div class="product-removal">
+          <button class="remove-product">Remove</button>
+        </div>
+      </a>
+      <div class="product-line-price">
+        <% if (item.total_price !== undefined && item.total_price !== null) { %>
+          <%= item.total_price.toFixed(2) %>
+        <% } else { %>
+          N/A <!-- or handle as per your UI/UX design -->
+        <% } %>
+      </div>
+    </div>
+  <% }); %>
+  <div class="totals">
+    <div class="totals-item">
+      <label>Subtotal</label>
+      <div class="totals-value" id="cart-subtotal">0</div>
+    </div>
+    <div class="totals-item">
+      <label>Tax (5%)</label>
+      <div class="totals-value" id="cart-tax">0</div>
+    </div>
+    <div class="totals-item">
+      <label>Shipping</label>
+      <div class="totals-value" id="cart-shipping">15.00</div>
+    </div>
+    <div class="totals-item totals-item-total">
+      <label>Grand Total</label>
+      <div class="totals-value" id="cart-total">0</div>
+    </div>
+  </div>
+  <a href="#" onclick="redirectToPayment()">
+    <button class="checkout">Checkout</button>
+  </a>
+</div>
+
+<!-- footer section starts here -->
+<footer class="footer-section">
+  <div class="footer-container">
+    <div class="footer-row">
+      <div class="footer-col">
+        <a href="/HTML/index.html"><img src="/ASSETS/IMAGES/white-logo.png" alt="logo" class="white-logo"></a>
+      </div>
+      <!-- column 1 -->
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Our Services</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">affiliate Program</a></li>
+        </ul>
+      </div>
+
+      <!-- column 2 -->
+      <div class="footer-col">
+        <h4>Help</h4>
+        <ul>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Shipping</a></li>
+          <li><a href="#">Return Policy</a></li>
+          <li><a href="#">Order Status</a></li>
+          <li><a href="#">Payment Options</a></li>
+        </ul>
+      </div>
+
+      <!-- column 3 -->
+      <div class="footer-col">
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="#">Vegetables</a></li>
+          <li><a href="#">Fruits</a></li>
+          <li><a href="#">Groceries</a></li>
+        </ul>
+      </div>
+
+      <!-- column 4 -->
+      <div class="footer-col">
+        <h4>Follow Us</h4>
+        <div class="social-links">
+          <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-contact-row">
+      <div class="footer-contact-no footer-contact-row-ele"><i class="fa-solid fa-phone"></i> +91-7739226540</div>
+      <div class="footer-contact-email footer-contact-row-ele"><i class="fa-solid fa-envelope"></i>saarthi@contact.in</div>
+      <div class="footer-copyright footer-contact-row-ele"><i class="fa-solid fa-copyright"></i>Copyright 2023 - 2024</div>
+    </div>
+  </div>
+</footer>
+
+
+<script src="JS/script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/qrious"></script>
+<script src="JS/cart.js"></script>
+
+<script>
+  // Function to redirect to /payment with cartTotal
+  function redirectToPayment() {
+    const cartTotal = document.getElementById('cart-total').innerText;
+    const url = `/payment?cartTotal=${encodeURIComponent(cartTotal)}`;
+    window.location.href = url;
+  }
+</script>
+
+</body>
+</html>

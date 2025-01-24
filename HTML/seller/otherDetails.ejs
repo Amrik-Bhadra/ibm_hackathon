@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Other Details | Saarthi</title>
+    <link rel="stylesheet" href="/CSS/style.css">
+    <link rel="shortcut icon" href="/ASSETS/IMAGES/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <style>
+        .map-box {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            gap: 0 1rem;
+        }
+        .map-box .map-icon-box {
+            background-color: #fff;
+            padding: 0.65rem;
+            border-radius: 10px;
+            color: #333;
+            font-size: 1.1rem;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo-box">
+                <a href="/HTML/index.html"><img src="/ASSETS/IMAGES/logo.png" alt="logo" class="logo"></a>
+            </div>
+            <div class="search-box">
+                <span class="material-symbols-outlined">search</span>
+                <input type="text" placeholder="Search for Vegetables, Fruits & Groceries..." class="search-input">
+            </div>
+            <div class="nav-icons-box">
+                <div class="nav-icon become-seller-box">
+                    <span class="material-symbols-outlined">storefront</span>
+                    <p>Become a Seller</p>
+                </div>
+                <div class="nav-icon cart-box">
+                    <div class="cart-icon">
+                        <span class="material-symbols-outlined">shopping_basket</span>
+                        <div class="cart-count"></div>
+                    </div>
+                    <p>Basket</p>
+                </div>
+                <div class="nav-icon login-profile-box">
+                    <div class="profile-pic-hidden"><img src="/ASSETS/IMAGES/profile-picture.jpg" alt="profile pic"></div>
+                    <a href=""><button class="login-btn"><span class="material-symbols-outlined">person</span>Login</button></a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="login-form-section">
+        <div class="form-container">
+            <div class="form-image-container log-form">
+                <img src="/ASSETS/IMAGES/shop-details.jpg" alt="signup image" class="form-image">
+            </div>
+            <div class="form-content-container log-form">
+                <form id="detailsForm" action="/otherDetails" method="post">
+                    <h2 class="form-title">Other Details</h2>
+                    <div class="input_box">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" name="sellername" id="sellername" placeholder="Name" required>
+                    </div>
+                    <input type="hidden" name="seller_id" value="<%= seller_id %>">
+                    <div class="input_box">
+                        <i class="fa-solid fa-shop"></i>
+                        <input type="text" name="shopname" id="shopname" placeholder="Shop Name" required>
+                    </div>
+                    <div class="input_box">
+                        <i class="fa-solid fa-phone"></i>
+                        <input type="number" name="phoneno" id="phoneno" placeholder="Phone No." required>
+                    </div>
+                    <div class="input_box">
+                        <i class="fa-regular fa-credit-card"></i>
+                        <input type="text" name="upi" id="upi" placeholder="UPI Id" required>
+                    </div>
+                    <div class="map-box">
+                        <div class="input_box">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <input type="text" name="address" id="address" placeholder="Address" required>
+                        </div>
+                        <a href="/map">
+                            <div class="map-icon-box">
+                                <i class="fa-solid fa-map-location-dot"></i>
+                            </div>
+                        </a>
+                    </div>
+                    <input type="hidden" name="latitude" id="latitude">
+                    <input type="hidden" name="longitude" id="longitude">
+                    <input type="submit" class="form-btn">
+                </form>                
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-section">
+        <div class="footer-container">
+            <div class="footer-row">
+                <div class="footer-col">
+                    <a href="/HTML/index.html"><img src="/ASSETS/IMAGES/white-logo.png" alt="logo" class="white-logo"></a>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Our Services</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">affiliate Program</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Help</h4>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Shipping</a></li>
+                        <li><a href="#">Return Policy</a></li>
+                        <li><a href="#">Order Status</a></li>
+                        <li><a href="#">Payment Options</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="#">Vegetables</a></li>
+                        <li><a href="#">Fruits</a></li>
+                        <li><a href="#">Groceries</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-contact-row">
+                <div class="footer-contact-no footer-contact-row-ele"><i class="fa-solid fa-phone"></i> +91-7739226540</div>
+                <div class="footer-contact-email footer-contact-row-ele"><i class="fa-solid fa-envelope"></i>saarthi@contact.in</div>
+                <div class="footer-copyright footer-contact-row-ele"><i class="fa-solid fa-copyright"></i>Copyright 2023 - 2024</div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        
+    </script>
+</body>
+</html>

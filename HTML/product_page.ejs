@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page | Saarthi</title>
+    <link rel="stylesheet" href="/CSS/style.css">
+    <link rel="stylesheet" href="/CSS/product_page.css">
+    <link rel="shortcut icon" href="/ASSETS/IMAGES/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+</head>
+<body>
+    <!-- header start here -->
+    <header>
+        <nav>
+            <!-- left box -->
+            <div class="logo-box">
+                <a href="/"><img src="/ASSETS/IMAGES/logo.png" alt="logo" class="logo"></a>
+            </div>
+
+            <!-- middle box -->
+            <div class="search-box">
+                <span class="material-symbols-outlined">search</span>
+                <input type="text" placeholder="Search for Vegetables, Fruits & Groceries..." class="search-input">
+            </div>
+
+            <!-- right box -->
+            <div class="nav-icons-box">
+                <div class="nav-icon become-seller-box">
+                    <a href="/seller-login">
+                        <span class="material-symbols-outlined">storefront</span>
+                        <p>Become a Seller</p>
+                    </a> 
+                </div>
+                <div class="nav-icon cart-box">
+                    <a href="/cart" style="color: #8c8b8b ">
+                        <div class="cart-icon">
+                            <span class="material-symbols-outlined">shopping_basket</span>
+                        </div>
+                        <p>Basket</p>
+                    </a>
+                </div>
+                <div class="nav-icon login-profile-box">
+                    <div class="profile-pic-hidden"><img src="/ASSETS/IMAGES/profile-picture.jpg" alt="profile pic"></div>
+                    <a href="/HTML/forms/login.html"><button class="login-btn"><span class="material-symbols-outlined">person</span>Login</button></a>
+                </div>
+            </div>
+        </nav>
+    </header> 
+    <!-- header ends here -->
+
+    <div class="productpage-main-container">
+        <div class="productpage-inner-container productpage-left-container">
+            <div class="productpage-image-container">
+                <div class="product-main-image-container">
+                    <img src="/images/<%= product.image_code %>.jpeg" alt="Product Image" />
+                </div>
+                <div class="product-sub-image-container">
+                    <div class="product-sub-image-box">
+                        <img src="/images/<%= product.image_code %>.jpeg" alt="Product Image" />
+                    </div>
+                    <div class="product-sub-image-box">
+                        <img src="/images/<%= product.image_code %>.jpeg" alt="Product Image" />
+                    </div>
+                    <div class="product-sub-image-box">
+                        <img src="/images/<%= product.image_code %>.jpeg" alt="Product Image" />
+                    </div>
+                    <div class="product-sub-image-box">
+                        <img src="/images/<%= product.image_code %>.jpeg" alt="Product Image" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="productpage-inner-container productpage-right-container">
+            <form action="/add-to-cart" method="post">
+                <input type="hidden" name="product_id" value="<%= product.product_id %>">
+                <div class="productpage-content-contianer">
+                    <h1 class="product-name"><%= product.product_name %></h1>
+                    <!-- rating box -->
+                    <div class="product-rating-review-box">
+                        <div class="product-rating"><%= product.rating %><i class="fa-solid fa-star"></i></div>
+                        <div class="product-review-count"><span class="reviews-span"><%= product.no_of_reviews %></span>reviews  <span class="rating-span"><%= product.ratings %></span>ratings</div>
+                    </div>
+                    <p class="product-qty">Qty: <span>1 kg</span></p>
+                    <p class="product-price">Price:
+                        <span class="material-symbols-outlined">currency_rupee</span>
+                        <span class="price-amount"><%= product.price %></span>
+                        <span class="tax-inc">(inclusive of all taxes)</span>
+                    </p>
+                    <p class="product-mrp">MRP:
+                        <span class="material-symbols-outlined">currency_rupee</span>
+                        <span class="price-mrp-amount"><%= product.mrp %></span>
+                    </p>
+    
+                    <!-- quantity container -->
+                    <div class="product-quantity-box">
+                        <h2 class="product-quantity-title">Quantity</h2>
+                        <div class="product-quantity-container">
+                            <input type="radio" id="50gm" name="quantity" value="0.05">
+                            <label for="50gm">50gm</label>
+    
+                            <input type="radio" id="100gm" name="quantity" value="0.1">
+                            <label for="100gm">100gm</label>
+    
+                            <input type="radio" id="150gm" name="quantity" value="0.15">
+                            <label for="150gm">150gm</label>
+    
+                            <input type="radio" id="250gm" name="quantity" value="0.25">
+                            <label for="250gm">250gm</label>
+    
+                            <input type="radio" id="500gm" name="quantity" value="0.5">
+                            <label for="500gm">500gm</label>
+    
+                            <input type="radio" id="1kg" name="quantity" value="1">
+                            <label for="1kg">1kg</label>
+    
+                            <input type="radio" id="2kg" name="quantity" value="2">
+                            <label for="2kg">2kg</label>
+    
+                            <input type="radio" id="5kg" name="quantity" value="5">
+                            <label for="5kg">5kg</label>
+                        </div>
+                    </div>
+                    <!-- qty container ends -->
+    
+                    <!-- button changed to input=submit  -->
+                    <div class="product-btn-box">
+                        <div class="add-To-Basket-Btn button"><input type="submit" value="Add to Basket" style="background: none; border: none;"> <i class='fa-solid fa-basket-shopping'></i></div>
+                        <div class="buy-now-btn button"><input type="submit" value="Buy Now" style="background: none; border: none;"></div>
+                        <div class="add-to-saved-items button"><i class="fa-solid fa-map-location-dot" style="color:#3FC979;"></i></div>
+                    </div>
+    
+                    <div class="product-description-box">
+                        <h2 class="product-desc-title">Description</h2>
+                        <p class="product-desc"><%= product.description %></p>
+                        
+                        <div class="product-seller-desc-box">
+                            <!-- shop desc -->
+                            <div class="product-seller-desc">
+                                <div class="product-seller-desc-icon-box">
+                                    <i class="fa-solid fa-store"></i>
+                                </div>
+                                <div class="product-seller-desc-content">
+                                    <h4>Shop name</h4>
+                                    <p><%= product.shopname %></p>
+                                </div>
+                            </div>
+    
+                            <!-- location desc  -->
+                            <div class="product-seller-desc">
+                                <div class="product-seller-desc-icon-box">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div class="product-seller-desc-content">
+                                    <h4>Location</h4>
+                                    <p><%= product.address %></p>
+                                </div>
+                            </div>
+    
+                            <!-- delivery time  -->
+                            <div class="product-seller-desc">
+                                <div class="product-seller-desc-icon-box">
+                                    <i class="fa-solid fa-clock"></i>
+                                </div>
+                                <div class="product-seller-desc-content">
+                                    <h4>Delivery time</h4>
+                                    <p><%= product.delivery_time %></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- comment section begins -->
+                    <div class="comment-section">
+                        <div class="comment-box">
+                            <textarea id="user-comment" class="comment-textarea" rows="5" placeholder="Write your comment or review here..."></textarea>
+                        </div>
+                    </div>
+                    <!-- comment section ends here -->
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- footer section starts here -->
+    <footer class="footer-section">
+        <div class="footer-container">
+            <div class="footer-row">
+                <div class="footer-col">
+                    <a href="/HTML/index.html"><img src="/ASSETS/IMAGES/white-logo.png" alt="logo" class="white-logo"></a>
+                </div>
+                <!-- column 1 -->
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Our Services</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">affiliate Program</a></li>
+                    </ul>
+                </div>
+
+                <!-- column 2 -->
+                <div class="footer-col">
+                    <h4>Help</h4>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Shipping</a></li>
+                        <li><a href="#">Return Policy</a></li>
+                        <li><a href="#">Order Status</a></li>
+                        <li><a href="#">Payment Options</a></li>
+                    </ul>
+                </div>
+
+                <!-- column 3 -->
+                <div class="footer-col">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="#">Vegetables</a></li>
+                        <li><a href="#">Fruits</a></li>
+                        <li><a href="#">Groceries</a></li>
+                    </ul>
+                </div>
+
+                <!-- column 4 -->
+                <div class="footer-col">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-contact-row">
+                <div class="footer-contact-no footer-contact-row-ele"><i class="fa-solid fa-phone"></i> +91-7739226540</div>
+                <div class="footer-contact-email footer-contact-row-ele"><i class="fa-solid fa-envelope"></i>saarthi@contact.in</div>
+                <div class="footer-copyright footer-contact-row-ele"><i class="fa-solid fa-copyright"></i>Copyright 2023 - 2024</div>
+            </div>
+        </div>
+    </footer>
+    <script src="JS/script.js"></script>
+</body>
+</html>

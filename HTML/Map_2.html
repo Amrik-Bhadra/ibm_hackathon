@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+    <title>Saarthi: Select Location</title>
+    <link rel="icon" href="http://mapmyindia.com/images/favicon.ico" type="image/x-icon"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <style type="text/css">
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            height: 100%;
+            font-family: Verdana, sans-serif, Arial;
+            color: #000;
+            margin: 0;
+            font-size: 14px;
+            padding: 0;
+            position: relative;
+        }
+
+        #map {
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+        }
+
+        button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-family: Verdana, sans-serif, Arial;
+            font-size: 14px;
+            padding: 10px 20px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        .current-location-btn {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: #fff;
+            border: none;
+            border-radius: 50%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .current-location-btn img {
+            width: 24px;
+            height: 24px;
+        }
+
+        .marker-popup {
+            position: absolute;
+            top: -25px;
+            left: -50%;
+            background-color: white;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            font-size: 12px;
+        }
+    </style>
+    <script src="https://apis.mapmyindia.com/advancedmaps/v1/36699494110173d5727106e7131f27b2/map_load?v=1.5"></script>
+</head>
+<body>
+<div id="map"></div>
+<a href="/otherDetails">
+    <button onclick="submitCoordinates()">Submit</button>
+</a>
+<button class="current-location-btn" onclick="moveToCurrentLocation()">
+    <img src="https://cdn-icons-png.flaticon.com/512/61/61112.png" alt="Current Location">
+</button>
+<script>
+    var map = null;
+    var marker = null;
+
+    window.onload = function () {
+        map = new MapmyIndia.Map('map', {zoomControl: true, hybrid: true});
+
+        navigator.geolocation.getCurrentPosition(function (position) {
+            var currentLatLng = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+            };
+            var title = "Draggable marker";
+            addMarker(currentLatLng, title);
+        }, function (error) {
+            console.error("Error getting current location:", error);
+        });
+    };
+
+    function addMarker(position, title) {
+        marker = new L.Marker(position, {draggable: true, title: title});
+        marker.addTo(map);
+
+        var popupContent = document.createElement("div");
+        popupContent.classList.add("marker-popup");
+        updatePopupContent(popupContent, position.lat, position.lng);
+        marker.bindPopup(popupContent);
+
+        marker.on("drag", function (e) {
+            var pt = e.target._latlng;
+            updatePopupContent(popupContent, pt.lat, pt.lng);
+        });
+
+        marker.on("dragend", function (e) {
+            var pt = e.target._latlng;
+            updatePopupContent(popupContent, pt.lat, pt.lng);
+            console.log("Draggable: lat:" + pt.lat + ", lng:" + pt.lng);
+        });
+
+        marker.openPopup();
+    }
+
+    function updatePopupContent(popupContent, lat, lng) {
+        popupContent.innerHTML = "Latitude: " + lat.toFixed(6) + "<br>Longitude: " + lng.toFixed(6);
+    }
+
+    function moveToCurrentLocation() {
+        navigator.geolocation.getCurrentPosition(function (position) {
+            var currentLatLng = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+            };
+            if (marker) {
+                marker.setLatLng(currentLatLng);
+                map.setView(currentLatLng);
+            } else {
+                var title = "Draggable marker";
+                addMarker(currentLatLng, title);
+            }
+            marker.openPopup();
+        }, function (error) {
+            console.error("Error getting current location:", error);
+        });
+    }
+
+    function submitCoordinates() {
+        if (marker) {
+            var lat = marker.getLatLng().lat;
+            var lng = marker.getLatLng().lng;
+
+            // Example of sending formData to backend using fetch API
+            fetch('/updateLocation', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ latitude: lat, longitude: lng })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                // Redirect or handle success as needed
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                // Handle error
+            });
+        } else {
+            console.log("No marker placed yet.");
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seller Dashboard | Saarthi</title>
+    <link rel="stylesheet" href="/CSS/seller.css">
+    <link rel="stylesheet" href="/CSS/style.css">
+    <link rel="shortcut icon" href="/ASSETS/IMAGES/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+</head>
+<body>
+    <div class="seller-dash-container">
+
+        <!-- side navbar -->
+        <nav class="seller-navigation">
+            <!-- upper part -->
+            <div class="seller-nav-part1 seller-nav-part">
+                <div class="nav-logo-box">
+                    <a href="/HTML/index.html"><img src="/ASSETS/IMAGES/logo.png" alt="" class="nav-logo"></a>
+                </div>
+                <div class="nav-menu-box">
+                    <h4 class="nav-menu-title">Menu</h4>
+                    <ul class="nav-menu-list">
+                        <a href="/seller-dashboard"><li class="nav-menu-items"><span class="material-symbols-outlined">space_dashboard</span>Dashboard</li></a>
+                        <a href=""><li class="nav-menu-items"><span class="material-symbols-outlined">monitoring</span>Statistics</li></a>
+                        <a href=""><li class="nav-menu-items"><span class="material-symbols-outlined">inventory_2</span>Products</li></a>
+                        <a href=""><li class="nav-menu-items"><span class="material-symbols-outlined">store</span>Shop</li></a>
+                        <a href=""><li class="nav-menu-items"><span class="material-symbols-outlined">headset_mic</span>Support</li></a>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- lower part -->
+            <div class="seller-nav-part2 seller-nav-part">
+                <div class="nav-menu-box">
+                    <h4 class="nav-menu-title">Settings</h4>
+                    <ul class="nav-menu-list">
+                        <a href=""><li class="nav-menu-items"><span class="material-symbols-outlined">settings</span>Settings</li></a>
+                        <a href="" id="logout-link"><span class="material-symbols-outlined">logout</span>Logout</a>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+        <!-- main content area -->
+        <div class="seller-dash-main-container">
+            <header class="seller-dash-header">
+                <h1 class="seller-header-title">Statistics</h1>
+                <div class="seller-header-content-box">
+                    <!-- search-box -->
+                    <div class="search-box">
+                        <span class="material-symbols-outlined">search</span>
+                        <input type="text" placeholder="Search Here..." class="search-input">
+                    </div>
+                    <div class="seller-header-icons">
+                        <div class="icon-box"><i class="fa-solid fa-envelope"></i>
+                            <div class="indicator"></div>
+                        </div>
+                        <div class="icon-box"><i class="fa-solid fa-bell"></i>
+                            <div class="indicator"></div>
+                        </div>
+                        <div class="icon-box profile-box">
+                            <img src="/ASSETS/IMAGES/customer-4.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="seller-dash-content-container">
+
+                <!-- graph container 1-->
+                <div class="seller-dash-chart-container">
+
+                    <!-- bar chart box -->
+                    <div class="seller-chart-box">
+                        <!-- chart header -->
+                        <div class="chart-box-header-box">
+                            <div class="chart-box-header-left">
+                                <h3>Annual Sales</h3>
+                            </div>
+                            <div class="chart-box-header-right">
+                                <div class="revenue-indicator-box indicator-box">
+                                    <div class="indicator-color"></div>
+                                    <h3>Revenue</h3>
+                                </div>
+                                <div class="order-indicator-box indicator-box">
+                                    <div class="indicator-color"></div>
+                                    <h3>Order</h3>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- chart box -->
+                        <div class="main-chart-box">
+                            <canvas id="myChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- pie chart box -->
+                    <div class="seller-chart-box">
+                        <div class="chart-box-header-box">
+                            <div class="chart-box-header-left">
+                                <h3>Product Sales</h3>
+                            </div>
+                            <div class="chart-box-header-right">
+                                <div class="chart-box-selector-box">
+                                    <div class="selector-box-content">
+                                        Month
+                                    </div>
+                                    <span class="material-symbols-outlined">arrow_drop_down</span>
+                                </div>
+                                <div class="chart-box-selector-box">
+                                    <div class="selector-box-content">
+                                        Year
+                                    </div>
+                                    <span class="material-symbols-outlined">arrow_drop_down</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="main-chart-box">
+                            <canvas id="myChart2"></canvas>
+                        </div>
+                    </div>
+                    <!-- pie chart ends -->
+                </div>
+                <!-- graph container 1 ends-->
+
+
+                <!-- graph container 2-->
+                <div class="seller-dash-chart-container graph-container-2">
+
+                    <!-- pie chart box -->
+                    <div class="seller-chart-box">
+                        <div class="chart-box-header-box">
+                            <div class="chart-box-header-left">
+                                <h3>Gender Distribution</h3>
+                            </div>
+                        </div>
+
+                        <div class="main-chart-box">
+                            <canvas id="myChart3"></canvas>
+                        </div>
+                    </div>
+                    <!-- pie chart ends -->
+
+
+                    <div class="seller-chart-box">
+                        <div class="chart-box-header-box">
+                            <div class="chart-box-header-left">
+                                <h3>Location Distribution</h3>
+                            </div>
+                        </div>
+
+                        <div class="main-chart-box">
+                            <canvas id="myChart5"></canvas>
+                        </div>
+                    </div>
+
+
+                    <!-- age distribution graph  -->
+                    <div class="seller-chart-box">
+                        <!-- chart header -->
+                        <div class="chart-box-header-box">
+                            <div class="chart-box-header-left">
+                                <h3>Age Distribution</h3>
+                            </div>
+                        </div>
+
+                        <!-- chart box -->
+                        <div class="main-chart-box">
+                            <canvas id="myChart4"></canvas>
+                        </div>
+                    </div>
+                    <!-- age distribution graph ends here  -->
+
+                </div>
+                <!-- graph container 2 ends-->
+
+            </div>
+        </div>        
+    </div>
+    
+    <script src="chart.js-4.4.2/package/dist/chart.umd.js"></script>    
+    <script src="JS/seller-statistics.js"></script>
+    
+</body>
+</html>

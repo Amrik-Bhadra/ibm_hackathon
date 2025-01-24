@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+    <title>Saarthi: Select Location</title>
+    <link rel="icon" href="http://mapmyindia.com/images/favicon.ico" type="image/x-icon"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style type="text/css">
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            height: 100%;
+            width: 100%;
+        }
+
+        .marker-popup {
+            font-size: 12px;
+        }
+
+        .current-location-btn img {
+            width: 24px;
+            height: 24px;
+        }
+    </style>
+    <!--put your map api javascript url with key here-->
+    <script src="https://apis.mapmyindia.com/advancedmaps/v1/36699494110173d5727106e7131f27b2/map_load?v=1.5"></script>
+</head>
+<body class="relative flex items-center justify-center">
+<div id="map" class="absolute inset-0"></div>
+<button class="current-location-btn bg-white border-none rounded-full shadow-md cursor-pointer w-10 h-10 flex items-center justify-center absolute bottom-5 left-5 z-50" onclick="showCurrentLocation()">
+    <img src="https://cdn-icons-png.flaticon.com/512/61/61112.png" alt="Current Location">
+</button>
+<script>
+    var map = null;
+    var storeMarker = null;
+    var currentLocationMarker = null;
+
+    var storeLatitude = 18.6741; // Example latitude
+    var storeLongitude = 73.8987; // Example longitude
+    var storeName = "Amrik's Store";
+
+    window.onload = function () {
+        map = new MapmyIndia.Map('map', {zoomControl: true, hybrid: true});
+        var storeLatLng = {
+            lat: storeLatitude,
+            lng: storeLongitude
+        };
+        addStoreMarker(storeLatLng, storeName);
+        map.setView(storeLatLng, 15); // Adjust the zoom level if necessary
+    };
+
+    function addStoreMarker(position, name) {
+        storeMarker = new L.Marker(position, {draggable: false, title: name});
+        storeMarker.addTo(map);
+
+        var popupContent = document.createElement("div");
+        popupContent.classList.add("marker-popup", "bg-white", "p-2", "border", "border-gray-300", "rounded", "shadow", "text-center", "font-semibold");
+        popupContent.innerHTML = `
+            <div class="text-lg text-blue-600">${name}</div>
+            <a href="https://www.google.com/maps/search/?api=1&query=${position.lat},${position.lng}" target="_blank" class="text-sm text-blue-500 underline mt-2 inline-block">Open in Google Maps</a>
+        `;
+        storeMarker.bindPopup(popupContent);
+        storeMarker.openPopup();
+    }
+
+    function showCurrentLocation() {
+        navigator.geolocation.getCurrentPosition(function (position) {
+            var currentLatLng = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+            };
+
+            if (currentLocationMarker) {
+                currentLocationMarker.setLatLng(currentLatLng);
+            } else {
+                currentLocationMarker = new L.Marker(currentLatLng, {icon: createRedDotIcon(), draggable: false});
+                currentLocationMarker.addTo(map);
+            }
+
+            map.setView(currentLatLng, 15); // Adjust the zoom level if necessary
+        }, function (error) {
+            console.error("Error getting current location:", error);
+        });
+    }
+
+    function createRedDotIcon() {
+        return new L.Icon({
+            iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/e/e6/Red_dot.svg',
+            iconSize: [10, 10], // size of the icon
+            iconAnchor: [5, 5] // point of the icon which will correspond to marker's location
+        });
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    font-family: "Poppins", sans-serif;
+    /* background: url("https://i.pinimg.com/564x/d3/ca/48/d3ca48632dd7e6c7ff8b78d781c873ef.jpg");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.9);  */
+  }
+  .content {
+      text-align: center;
+      color: white;
+      z-index: 1;
+    }
+  .blur-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      backdrop-filter: blur(80px); 
+      z-index: 0;
+    }
+  .screen_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+  }
+  
+  .products_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .product {
+    width: 300px;
+    background-color: #fff;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease; 
+  }
+  
+  .image_container {
+    height: 200px;
+    overflow: hidden;
+  }
+  
+  .image_container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .product_name {
+    padding-left: 10px;
+    padding-top: 0px;
+    margin: 0;
+    font-size: 15px;
+  }
+  
+  .product_price {
+    padding-left: 10px;
+    font-size: 15px;
+    color: #535050;
+  }
+  
+  .button_div {
+    text-align: center;
+  }
+  
+  button {
+    padding: 5px 10px;
+    background-color: #1a3552;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: background-color 0.4s ease;
+  }
+  
+  button:hover {
+    background-color: #557f99;
+  }
+  
+  .product_description {
+    font-size: 1px;
+    color: #535050;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+  }
+  
+  #product_description {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+  }
+  
+  .category_heading_container {
+    width: 100%;
+    height: 20vh;
+    margin-bottom: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .category_heading_sub_container {
+    width: 80%;
+  }
+  
+  .category_heading {
+    font-size: 25px;
+  }
+  
+  .category_heading_title {
+    font-size: 2px;
+    color: #1a3552;
+  }
+  
+  .product:hover {
+    transform: scale(1.05);
+  }
+  

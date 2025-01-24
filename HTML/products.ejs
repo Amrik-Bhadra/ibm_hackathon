@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page | Saarthi</title>
+    <link rel="stylesheet" href="/CSS/style.css">
+    <link rel="stylesheet" href="/CSS/product_page.css">
+    <link rel="shortcut icon" href="/ASSETS/IMAGES/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+</head>
+<body>
+    <!-- header start here -->
+    <header>
+        <nav>
+            <!-- left box -->
+            <div class="logo-box">
+                <a href="/"><img src="/ASSETS/IMAGES/logo.png" alt="logo" class="logo"></a>
+            </div>
+
+            <!-- middle box -->
+                <form action="/search" method="GET" class="search-box">
+                    <span class="material-symbols-outlined">search</span>
+                    <input type="text" name="search_product" placeholder="Search for Vegetables, Fruits & Groceries..." class="search-input">
+                </form>
+
+
+            <!-- right box -->
+            <div class="nav-icons-box">
+                <div class="nav-icon become-seller-box">
+                   <a href="/seller-login"><span class="material-symbols-outlined">storefront</span>
+                    <p>Become a Seller</p>
+                </a> 
+                </div>
+                <div class="nav-icon cart-box">
+                    <a href="/cart" style="color: #8c8b8b ">
+                        <div class="cart-icon">
+                            <span class="material-symbols-outlined">shopping_basket</span>
+                        </div>
+                        <p>Basket</p>
+                    </a>
+                    
+                </div>
+                <div class="nav-icon login-profile-box">
+                    <div class="profile-pic-hidden"><img src="/ASSETS/IMAGES/profile-picture.jpg" alt="profile pic"></div>
+                    <a href="/HTML/forms/login.html"><button class="login-btn"><span class="material-symbols-outlined">person</span>Login</button></a>
+                </div>
+            </div>
+        </nav>
+    </header> 
+    <!-- header ends here -->
+
+
+    <div class="product_list_main-container">
+        <!-- filter container -->
+        <div class="product-list-filter-container">
+            <form action="/filter" method="GET">
+                <div class="filter-container-title-box">
+                    <h2 class="filter-container-title">Filters</h2>
+                    <button type="submit" class="apply-filter">Apply</button>
+                </div>
+                <div class="filter-cards">
+                    <h2 class="filter-card-title">Price</h2>
+                    <div class="filter-card-content-box">
+                        <div class="price-filter-box">
+                            <p>min price: </p>
+                            <input type="number" name="min_price" id="min_price">
+                        </div>
+                        <div class="price-filter-box">
+                            <p>max price: </p>
+                            <input type="number" name="max_price" id="max_price">
+                        </div>
+                    </div>
+                </div>
+                <div class="filter-cards">
+                    <h2 class="filter-card-title">Customer Ratings</h2>
+                    <div class="filter-card-content-box">
+                        <div class="rating-filter-box">
+                            <input type="radio" name="rating" value="4" id="4_star">
+                            <p>4 <i class="fa-solid fa-star"></i> & above</p>
+                        </div>
+                        <div class="rating-filter-box">
+                            <input type="radio" name="rating" value="3" id="3_star">
+                            <p>3 <i class="fa-solid fa-star"></i> & above</p>
+                        </div>
+                        <div class="rating-filter-box">
+                            <input type="radio" name="rating" value="2" id="2_star">
+                            <p>2 <i class="fa-solid fa-star"></i> & above</p>
+                        </div>
+                        <div class="rating-filter-box">
+                            <input type="radio" name="rating" value="1" id="1_star">
+                            <p>1 <i class="fa-solid fa-star"></i> & above</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="filter-cards last-filter-card">
+                    <h2 class="filter-card-title">Discount</h2>
+                    <div class="filter-card-content-box">
+                        <div class="rating-filter-box">
+                            <input type="radio" name="discount" value="50" id="50_per">
+                            <p>50% or more</p>
+                        </div>
+                        <div class="rating-filter-box">
+                            <input type="radio" name="discount" value="40" id="40_per">
+                            <p>40% or more</p>
+                        </div>
+                        <div class="rating-filter-box">
+                            <input type="radio" name="discount" value="30" id="30_per">
+                            <p>30% or more</p>
+                        </div>
+                        <div class="rating-filter-box">
+                            <input type="radio" name="discount" value="20" id="20_per">
+                            <p>20% or more</p>
+                        </div>
+                        <div class="rating-filter-box">
+                            <input type="radio" name="discount" value="10" id="10_per">
+                            <p>10% or more</p>
+                        </div>
+                        <div class="rating-filter-box">
+                            <input type="radio" name="discount" value="5" id="5_per">
+                            <p>5% or more</p>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    
+
+    <!-- products container -->
+    <div class="product-list-product-container">
+        <% products.forEach(function(product) { %>
+            <a href="/product_page?product_id=<%= product.product_id %>">
+            <div class="product-list-product-card">
+                <div class="product-image-container">
+                    <img src="/images/<%= product.image_code %>.jpeg" alt="Product Image" />
+                </div>
+                <div class="product-content-container">
+                    <!-- title -->
+                    <div class="product-title-box">
+                        <h2 class="product-title"><%= product.product_name %></h2>
+                        <p class="product-qty"><%= product.quantity %></p>
+                    </div>
+    
+                    <!-- rating box -->
+                    <div class="product-rating-box">
+                        <div class="product-rating"><%= product.rating %><span class="material-symbols-outlined">
+                                star_rate
+                            </span></div>
+                        <div class="product-review-count">(<span><%= product.no_of_reviews %></span>)</div>
+                    </div>
+    
+                    <!-- price box -->
+                    <div class="product-price-box">
+                        <div class="product-price"><span class="material-symbols-outlined">
+                                currency_rupee</span>
+                            <span class="product-price-amount"><%= product.price %></span>
+                        </div>
+                        <div class="product-mrp-box">
+                            <span class="product-mrp-amount"><%= product.mrp %></span>
+                        </div>
+                        <div class="product-discount-box">
+                            <h3 class="product-discount"><%= product.discount %>%</h3>
+                        </div>
+                    </div>
+                    <span id="success-msg" style="color: red;"><%= successMsg %></span><br>
+                    <div class="product-btn-box">
+                        <form action="/add-to-cart" method="post">
+                            <input type="hidden" name="product_id" value="<%= product.product_id %>">
+                            <button type="submit" class="product-btn">Add to bag</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </a>
+        <% }); %>
+    </div>
+</div>
+     <!-- footer section starts here -->
+     <footer class="footer-section">
+        <div class="footer-container">
+            <div class="footer-row">
+                <div class="footer-col">
+                    <a href="/HTML/index.html"><img src="/ASSETS/IMAGES/white-logo.png" alt="logo" class="white-logo"></a>
+                </div>
+                <!-- column 1 -->
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Our Services</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">affiliate Program</a></li>
+                    </ul>
+                </div>
+
+                <!-- column 2 -->
+                <div class="footer-col">
+                    <h4>Help</h4>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Shipping</a></li>
+                        <li><a href="#">Return Policy</a></li>
+                        <li><a href="#">Order Status</a></li>
+                        <li><a href="#">Payment Options</a></li>
+                    </ul>
+                </div>
+
+                <!-- column 3 -->
+                <div class="footer-col">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="#">Vegetables</a></li>
+                        <li><a href="#">Fruits</a></li>
+                        <li><a href="#">Groceries</a></li>
+                    </ul>
+                </div>
+
+                <!-- column 4 -->
+                <div class="footer-col">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-contact-row">
+                <div class="footer-contact-no footer-contact-row-ele"><i class="fa-solid fa-phone"></i> +91-7739226540</div>
+                <div class="footer-contact-email footer-contact-row-ele"><i class="fa-solid fa-envelope"></i>saarthi@contact.in</div>
+                <div class="footer-copyright footer-contact-row-ele"><i class="fa-solid fa-copyright"></i>Copyright 2023 - 2024</div>
+            </div>
+        </div>
+    </footer>
+    <script src="JS/script.js"></script>
+</body>
+</html>
